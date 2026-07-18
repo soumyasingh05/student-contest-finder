@@ -3,514 +3,475 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Contest Finder</title>
+<title>Student Contest Finder — Canada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#D6001C;--red-light:#FFF0F2;--red-mid:#FFDDE2;
+  --navy:#0D1B40;--navy-mid:#1E3163;
+  --white:#FFFFFF;--offwhite:#F7F8FA;--border:#E4E7EE;
+  --text:#111827;--muted:#6B7280;--subtle:#9CA3AF;
+  --math:#1D4ED8;--math-bg:#EFF6FF;--math-bd:#BFDBFE;
+  --essay:#7C3AED;--essay-bg:#F5F3FF;--essay-bd:#DDD6FE;
+  --debate:#B45309;--debate-bg:#FFFBEB;--debate-bd:#FDE68A;
+  --science:#059669;--science-bg:#ECFDF5;--science-bd:#A7F3D0;
+  --arts:#DB2777;--arts-bg:#FDF2F8;--arts-bd:#FBCFE8;
+  --radius-sm:6px;--radius:10px;--radius-lg:16px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.06);
+  --shadow:0 2px 8px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+  --shadow-lg:0 8px 24px rgba(0,0,0,.10),0 2px 6px rgba(0,0,0,.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-  :root {
-    --bg: #f9f7f4;
-    --surface: #ffffff;
-    --border: #e8e4de;
-    --text: #1a1714;
-    --muted: #7a746c;
-    --accent: #2a5c45;
-    --accent-light: #eaf3ee;
-    --math: #1d4ed8;    --math-bg: #eff6ff;
-    --essay: #6d28d9;   --essay-bg: #f5f3ff;
-    --debate: #b45309;  --debate-bg: #fffbeb;
-    --science: #15803d; --science-bg: #f0fdf4;
-    --arts: #be185d;    --arts-bg: #fdf2f8;
-    --radius: 10px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  }
+/* ── NAV ── */
+nav{background:var(--navy);color:#fff;padding:0 1.5rem;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{width:32px;height:32px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.nav-logo-text{font-family:'Fraunces',serif;font-size:18px;color:#fff;letter-spacing:-.2px}
+.nav-logo-sub{font-size:11px;color:rgba(255,255,255,.55);font-weight:400;margin-left:4px}
+.nav-links{display:flex;gap:4px}
+.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s}
+.nav-link:hover,.nav-link.active{color:#fff;background:rgba(255,255,255,.12)}
+.nav-cta{font-size:13px;font-weight:600;background:var(--red);color:#fff;border:none;padding:7px 16px;border-radius:7px;cursor:pointer;text-decoration:none;transition:background .15s}
+.nav-cta:hover{background:#b8001a}
+@media(max-width:680px){.nav-links{display:none}.nav-logo-sub{display:none}}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#1a3a7a 100%);color:#fff;padding:4rem 1.5rem 3.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.65);margin-bottom:1rem}
+.hero-flag{font-size:16px}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.12;letter-spacing:-.5px;margin-bottom:.75rem;max-width:620px}
+.hero h1 em{font-style:italic;color:#F9A8B4}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.72);font-weight:300;max-width:520px;margin-bottom:2rem;line-height:1.65}
+.hero-stats{display:flex;flex-wrap:wrap;gap:2rem}
+.hero-stat{display:flex;flex-direction:column;gap:2px}
+.hero-stat-num{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:#fff}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em}
 
-  /* ── Header ── */
-  header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .logo {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    text-decoration: none;
-  }
-  .logo-mark {
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    color: var(--text);
-    letter-spacing: -0.3px;
-  }
-  .logo-country {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--muted);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 2px 8px;
-    border-radius: 20px;
-  }
-  .header-meta {
-    font-size: 13px;
-    color: var(--muted);
-  }
+/* ── CATEGORY NAV ── */
+.cat-nav{background:var(--white);border-bottom:1px solid var(--border);padding:.75rem 1.5rem;position:sticky;top:58px;z-index:100}
+.cat-nav-inner{max-width:1200px;margin:0 auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cat-btn{display:flex;align-items:center;gap:7px;padding:8px 16px;border-radius:24px;border:1.5px solid var(--border);background:var(--white);font-family:inherit;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap}
+.cat-btn:hover{border-color:var(--text);color:var(--text)}
+.cat-btn.active-all{background:var(--navy);border-color:var(--navy);color:#fff}
+.cat-btn.active-Math{background:var(--math-bg);border-color:var(--math);color:var(--math)}
+.cat-btn.active-Essay{background:var(--essay-bg);border-color:var(--essay);color:var(--essay)}
+.cat-btn.active-Debate{background:var(--debate-bg);border-color:var(--debate);color:var(--debate)}
+.cat-btn.active-Science{background:var(--science-bg);border-color:var(--science);color:var(--science)}
+.cat-btn.active-Arts{background:var(--arts-bg);border-color:var(--arts);color:var(--arts)}
+.cat-icon{font-size:15px}
+.cat-count{font-size:11px;font-weight:600;opacity:.7}
 
-  /* ── Hero ── */
-  .hero {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3.5rem 2rem 2rem;
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-    color: var(--text);
-    max-width: 540px;
-    margin-bottom: 0.75rem;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-  .hero p {
-    color: var(--muted);
-    font-size: 15px;
-    font-weight: 300;
-    max-width: 440px;
-    margin-bottom: 2rem;
-  }
+/* ── MAIN LAYOUT ── */
+.layout{max-width:1200px;margin:0 auto;padding:2rem 1.5rem 5rem;display:grid;grid-template-columns:240px 1fr;gap:2rem;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
 
-  /* ── Stats bar ── */
-  .stats {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-  }
-  .stat { display: flex; flex-direction: column; gap: 1px; }
-  .stat-num { font-size: 22px; font-weight: 500; color: var(--text); }
-  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+/* ── SIDEBAR ── */
+.sidebar{position:sticky;top:130px}
+.sidebar-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1rem}
+.sidebar-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--subtle);margin-bottom:.75rem}
+.search-box{position:relative;margin-bottom:1rem}
+.search-box input{width:100%;padding:9px 12px 9px 36px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:inherit;font-size:14px;color:var(--text);background:var(--offwhite);outline:none;transition:border-color .15s}
+.search-box input:focus{border-color:var(--navy);background:#fff}
+.search-box input::placeholder{color:var(--subtle)}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--subtle);pointer-events:none}
+.filter-label{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px;display:block}
+.filter-select{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:inherit;font-size:13px;color:var(--text);background:var(--white);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;outline:none;cursor:pointer;margin-bottom:.75rem}
+.filter-select:focus{border-color:var(--navy)}
+.reward-filters{display:flex;flex-direction:column;gap:6px}
+.reward-check{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);cursor:pointer}
+.reward-check input{accent-color:var(--navy);width:15px;height:15px;cursor:pointer}
+.sidebar-promo{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:var(--radius-lg);padding:1.25rem;color:#fff;text-align:center}
+.sidebar-promo h3{font-family:'Fraunces',serif;font-size:17px;margin-bottom:.4rem}
+.sidebar-promo p{font-size:12px;color:rgba(255,255,255,.7);margin-bottom:1rem;line-height:1.5}
+.sidebar-promo-btn{display:block;background:var(--red);color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:9px;border-radius:8px;transition:background .15s}
+.sidebar-promo-btn:hover{background:#b8001a}
 
-  /* ── Filters ── */
-  .filters-wrap {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 60px;
-    z-index: 90;
-  }
-  .filters-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .search-wrap {
-    position: relative;
-    flex: 1;
-    min-width: 200px;
-    max-width: 320px;
-  }
-  .search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    pointer-events: none;
-    font-size: 14px;
-  }
-  input[type="text"] {
-    width: 100%;
-    padding: 8px 12px 8px 34px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    font-family: inherit;
-    font-size: 14px;
-    background: var(--bg);
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.15s;
-  }
-  input[type="text"]:focus { border-color: var(--accent); background: var(--surface); }
-  input[type="text"]::placeholder { color: var(--muted); }
+/* ── MAIN CONTENT ── */
+.main-content{}
+.results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.5rem}
+.results-count{font-size:14px;color:var(--muted)}
+.results-count strong{color:var(--text);font-weight:600}
+.sort-select{padding:6px 28px 6px 10px;border:1.5px solid var(--border);border-radius:var(--radius);font-family:inherit;font-size:13px;color:var(--text);background:var(--white);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;outline:none;cursor:pointer}
 
-  .pill-group { display: flex; gap: 6px; flex-wrap: wrap; }
-  .pill {
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    font-size: 13px;
-    font-family: inherit;
-    background: var(--bg);
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-    font-weight: 400;
-  }
-  .pill:hover { border-color: var(--text); color: var(--text); }
-  .pill.active { background: var(--text); color: #fff; border-color: var(--text); }
-  .pill.active.math { background: var(--math); border-color: var(--math); }
-  .pill.active.essay { background: var(--essay); border-color: var(--essay); }
-  .pill.active.debate { background: var(--debate); border-color: var(--debate); }
-  .pill.active.science { background: var(--science); border-color: var(--science); }
-  .pill.active.arts { background: var(--arts); border-color: var(--arts); }
+/* ── FEATURED BANNER ── */
+.featured-banner{background:linear-gradient(135deg,#FFF7ED,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.featured-banner-left{display:flex;align-items:center;gap:.75rem}
+.featured-banner-icon{font-size:28px}
+.featured-banner-text h3{font-size:15px;font-weight:700;color:#92400E}
+.featured-banner-text p{font-size:13px;color:#B45309}
+.featured-banner-badge{background:#F59E0B;color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 
-  select {
-    padding: 6px 28px 6px 12px;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    font-family: inherit;
-    font-size: 13px;
-    background: var(--bg);
-    color: var(--muted);
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237a746c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    outline: none;
-  }
-  select:focus { border-color: var(--accent); }
+/* ── CONTEST CARDS ── */
+.cards-grid{display:flex;flex-direction:column;gap:12px}
 
-  .filter-count {
-    font-size: 13px;
-    color: var(--muted);
-    margin-left: auto;
-    white-space: nowrap;
-  }
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;transition:box-shadow .15s,transform .15s,border-color .15s;animation:slideUp .25s ease both}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-1px);border-color:#D1D5DB}
+.card.is-featured{border-color:#F59E0B;border-width:2px;background:linear-gradient(to right,#FFFDF7,var(--white))}
+@keyframes slideUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
-  /* ── Main grid ── */
-  .main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 2rem 4rem;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 16px;
-  }
+.card-inner{display:grid;grid-template-columns:1fr auto;gap:.75rem 1.5rem;align-items:start}
+@media(max-width:600px){.card-inner{grid-template-columns:1fr}}
 
-  /* ── Card ── */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: box-shadow 0.15s, transform 0.15s;
-    animation: fadeUp 0.3s ease both;
-  }
-  .card:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    transform: translateY(-1px);
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+.card-left{}
+.card-header{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.5rem;flex-wrap:wrap}
+.card-cat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.card-cat-dot.Math{background:var(--math)}
+.card-cat-dot.Essay{background:var(--essay)}
+.card-cat-dot.Debate{background:var(--debate)}
+.card-cat-dot.Science{background:var(--science)}
+.card-cat-dot.Arts{background:var(--arts)}
 
-  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-  .card-name {
-    font-size: 14.5px;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.4;
-    flex: 1;
-  }
-  .featured-badge {
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    background: #fef9c3;
-    color: #854d0e;
-    border: 1px solid #fde68a;
-    padding: 2px 7px;
-    border-radius: 4px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
+.card-title-wrap{flex:1}
+.card-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.card-eyebrow.Math{color:var(--math)}
+.card-eyebrow.Essay{color:var(--essay)}
+.card-eyebrow.Debate{color:var(--debate)}
+.card-eyebrow.Science{color:var(--science)}
+.card-eyebrow.Arts{color:var(--arts)}
+.card-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.1rem}
+.card-org{font-size:12.5px;color:var(--muted);font-weight:400}
+.card-featured-badge{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0}
 
-  .card-desc {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.55;
-  }
+.card-desc{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:1rem;font-weight:300}
 
-  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    font-size: 12px;
-    font-weight: 400;
-    padding: 3px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
-  .tag-math    { background: var(--math-bg);    color: var(--math); }
-  .tag-essay   { background: var(--essay-bg);   color: var(--essay); }
-  .tag-debate  { background: var(--debate-bg);  color: var(--debate); }
-  .tag-science { background: var(--science-bg); color: var(--science); }
-  .tag-arts    { background: var(--arts-bg);    color: var(--arts); }
-  .tag-neutral { background: #f3f4f6; color: #374151; }
-  .tag-green   { background: var(--accent-light); color: var(--accent); }
+.card-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:500;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.pill-cat{border:1px solid transparent}
+.pill-cat.Math{background:var(--math-bg);color:var(--math);border-color:var(--math-bd)}
+.pill-cat.Essay{background:var(--essay-bg);color:var(--essay);border-color:var(--essay-bd)}
+.pill-cat.Debate{background:var(--debate-bg);color:var(--debate);border-color:var(--debate-bd)}
+.pill-cat.Science{background:var(--science-bg);color:var(--science);border-color:var(--science-bd)}
+.pill-cat.Arts{background:var(--arts-bg);color:var(--arts);border-color:var(--arts-bd)}
+.pill-neutral{background:#F3F4F6;color:#374151;border:1px solid #E5E7EB}
+.pill-green{background:#ECFDF5;color:#065F46;border:1px solid #A7F3D0}
+.pill-gold{background:#FFFBEB;color:#92400E;border:1px solid #FDE68A}
 
-  .card-meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 12px;
-    padding-top: 4px;
-    border-top: 1px solid var(--border);
-  }
-  .meta-item { display: flex; flex-direction: column; gap: 1px; }
-  .meta-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
-  .meta-val { font-size: 13px; color: var(--text); }
+.card-meta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;padding:1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1rem}
+@media(max-width:480px){.card-meta-row{grid-template-columns:1fr 1fr}}
+.meta-block{}
+.meta-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--subtle);margin-bottom:2px}
+.meta-val{font-size:13px;font-weight:500;color:var(--text)}
 
-  .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 4px; }
-  .org-name { font-size: 12px; color: var(--muted); font-weight: 300; flex: 1; }
-  .visit-btn {
-    font-size: 12.5px;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
-    padding: 5px 12px;
-    border: 1px solid var(--accent);
-    border-radius: 6px;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .visit-btn:hover { background: var(--accent); color: #fff; }
+.card-right{display:flex;flex-direction:column;align-items:flex-end;gap:.75rem;min-width:130px}
+@media(max-width:600px){.card-right{flex-direction:row;align-items:center;justify-content:space-between;min-width:0}}
+.reward-badge{text-align:center;background:var(--offwhite);border:1.5px solid var(--border);border-radius:var(--radius);padding:.75rem 1rem;min-width:110px}
+.reward-badge-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--subtle);margin-bottom:2px}
+.reward-badge-type{font-size:15px;font-weight:700;color:var(--text)}
+.reward-badge.type-Cash,.reward-badge.type-Scholarship{border-color:#A7F3D0;background:#ECFDF5}
+.reward-badge.type-Cash .reward-badge-type,.reward-badge.type-Scholarship .reward-badge-type{color:#065F46}
+.apply-btn{display:inline-flex;align-items:center;gap:5px;background:var(--navy);color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:10px 18px;border-radius:8px;transition:background .15s;white-space:nowrap;width:100%;justify-content:center}
+.apply-btn:hover{background:var(--navy-mid)}
+.apply-btn.btn-featured{background:var(--red)}
+.apply-btn.btn-featured:hover{background:#b8001a}
+.deadline-warn{font-size:11.5px;color:var(--red);font-weight:500;text-align:center}
 
-  /* ── Empty state ── */
-  .empty {
-    grid-column: 1/-1;
-    text-align: center;
-    padding: 4rem 2rem;
-    color: var(--muted);
-  }
-  .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .empty h3 { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
+/* ── EMPTY STATE ── */
+.empty{text-align:center;padding:4rem 2rem;color:var(--muted);background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-lg)}
+.empty-icon{font-size:2.5rem;margin-bottom:1rem}
+.empty h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:.5rem}
 
-  /* ── Footer ── */
-  footer {
-    border-top: 1px solid var(--border);
-    background: var(--surface);
-    padding: 1.5rem 2rem;
-    text-align: center;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-    .hero { padding: 2rem 1rem 1.5rem; }
-    .filters-wrap { padding: 0.75rem 1rem; }
-    .main { padding: 1.5rem 1rem 3rem; }
-    .grid { grid-template-columns: 1fr; }
-    .stats { gap: 1.25rem; }
-    .filter-count { display: none; }
-  }
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 1.5rem}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+@media(max-width:760px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+.footer-logo{font-family:'Fraunces',serif;font-size:20px;color:#fff;margin-bottom:.5rem}
+.footer-tagline{font-size:13px;line-height:1.6;margin-bottom:1rem}
+.footer-col-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:.75rem}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;margin-bottom:.4rem;transition:color .15s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:.75rem;font-size:12.5px}
+.footer-bottom a{color:rgba(255,255,255,.5);text-decoration:none}
+.footer-bottom a:hover{color:#fff}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="logo" href="#">
-      <span class="logo-mark">Student Contest Finder</span>
-      <span class="logo-country">🇨🇦 Canada</span>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <span class="nav-logo-icon">🏆</span>
+      <span class="nav-logo-text">Student Contest Finder <span class="nav-logo-sub">Canada</span></span>
     </a>
-    <span class="header-meta">30 contests · Updated 2025–26</span>
+    <div class="nav-links">
+      <a class="nav-link active" href="#">Contests</a>
+      <a class="nav-link" href="#">By Grade</a>
+      <a class="nav-link" href="#">Deadlines</a>
+      <a class="nav-link" href="#">Resources</a>
+    </div>
+    <a class="nav-cta" href="#">List Your Contest</a>
   </div>
-</header>
+</nav>
 
-<div class="hero">
-  <h1>Find the right <em>contest</em> for your student.</h1>
-  <p>A free, curated directory of math, science, essay, debate, and arts competitions open to Canadian students from Grade 1 to 12.</p>
-  <div class="stats">
-    <div class="stat"><span class="stat-num" id="total-count">30</span><span class="stat-label">Contests</span></div>
-    <div class="stat"><span class="stat-num">5</span><span class="stat-label">Categories</span></div>
-    <div class="stat"><span class="stat-num">K–12</span><span class="stat-label">Grade Range</span></div>
-    <div class="stat"><span class="stat-num">Free</span><span class="stat-label">To Browse</span></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="hero-flag">🇨🇦</span> Canada's Free Contest Directory</div>
+    <h1>Find the right <em>competition</em> for your student.</h1>
+    <p class="hero-sub">Browse 30 verified contests across Math, Science, Essay, Debate, and Arts — open to Canadian students from Grade 1 to 12.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-num" id="heroTotal">30</span><span class="hero-stat-label">Active Contests</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">Categories</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">K–12</span><span class="hero-stat-label">Grade Range</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">Free</span><span class="hero-stat-label">To Browse</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <div class="cat-nav-inner" id="catNav">
+    <button class="cat-btn active-all" data-cat="All" onclick="setCat(this)"><span class="cat-icon">📋</span> All <span class="cat-count" id="cnt-All">30</span></button>
+    <button class="cat-btn" data-cat="Math" onclick="setCat(this)"><span class="cat-icon">🔢</span> Math <span class="cat-count" id="cnt-Math"></span></button>
+    <button class="cat-btn" data-cat="Essay" onclick="setCat(this)"><span class="cat-icon">✍️</span> Essay <span class="cat-count" id="cnt-Essay"></span></button>
+    <button class="cat-btn" data-cat="Debate" onclick="setCat(this)"><span class="cat-icon">🎤</span> Debate <span class="cat-count" id="cnt-Debate"></span></button>
+    <button class="cat-btn" data-cat="Science" onclick="setCat(this)"><span class="cat-icon">🔬</span> Science <span class="cat-count" id="cnt-Science"></span></button>
+    <button class="cat-btn" data-cat="Arts" onclick="setCat(this)"><span class="cat-icon">🎨</span> Arts <span class="cat-count" id="cnt-Arts"></span></button>
   </div>
 </div>
 
-<div class="filters-wrap">
-  <div class="filters-inner">
-    <div class="search-wrap">
-      <span class="search-icon">⌕</span>
-      <input type="text" id="searchInput" placeholder="Search contests..." oninput="applyFilters()">
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Search & Filter</div>
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search contests..." oninput="applyFilters()">
+      </div>
+      <label class="filter-label">Grade Level</label>
+      <select class="filter-select" id="gradeFilter" onchange="applyFilters()">
+        <option value="">All Grades</option>
+        <option value="1–3">Grades 1–3</option>
+        <option value="4–6">Grades 4–6</option>
+        <option value="7–9">Grades 7–9</option>
+        <option value="10–12">Grades 10–12</option>
+      </select>
+      <label class="filter-label">Mode</label>
+      <select class="filter-select" id="modeFilter" onchange="applyFilters()">
+        <option value="">Online & In-Person</option>
+        <option value="Online">Online Only</option>
+        <option value="In-Person">In-Person Only</option>
+        <option value="Both">Both Available</option>
+      </select>
+      <label class="filter-label">Reward Type</label>
+      <div class="reward-filters">
+        <label class="reward-check"><input type="checkbox" value="Cash" onchange="applyFilters()"> 💵 Cash Prize</label>
+        <label class="reward-check"><input type="checkbox" value="Scholarship" onchange="applyFilters()"> 🎓 Scholarship</label>
+        <label class="reward-check"><input type="checkbox" value="Certificate" onchange="applyFilters()"> 📜 Certificate</label>
+        <label class="reward-check"><input type="checkbox" value="Recognition" onchange="applyFilters()"> 🏅 Recognition</label>
+      </div>
     </div>
-    <div class="pill-group" id="catPills">
-      <button class="pill active" data-cat="All" onclick="setCat(this)">All</button>
-      <button class="pill math" data-cat="Math" onclick="setCat(this)">Math</button>
-      <button class="pill essay" data-cat="Essay" onclick="setCat(this)">Essay</button>
-      <button class="pill debate" data-cat="Debate" onclick="setCat(this)">Debate</button>
-      <button class="pill science" data-cat="Science" onclick="setCat(this)">Science</button>
-      <button class="pill arts" data-cat="Arts" onclick="setCat(this)">Arts</button>
+    <div class="sidebar-promo">
+      <h3>List Your Contest</h3>
+      <p>Reach thousands of Canadian students, parents and teachers.</p>
+      <a href="mailto:hello@studentcontestfinder.ca" class="sidebar-promo-btn">Get Featured →</a>
     </div>
-    <select id="gradeFilter" onchange="applyFilters()">
-      <option value="">All grades</option>
-      <option value="1–3">Grades 1–3</option>
-      <option value="4–6">Grades 4–6</option>
-      <option value="7–9">Grades 7–9</option>
-      <option value="10–12">Grades 10–12</option>
-    </select>
-    <select id="modeFilter" onchange="applyFilters()">
-      <option value="">Online & In-Person</option>
-      <option value="Online">Online only</option>
-      <option value="In-Person">In-Person only</option>
-      <option value="Both">Both available</option>
-    </select>
-    <span class="filter-count" id="filterCount">Showing 29 contests</span>
-  </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <div class="results-bar">
+      <div class="results-count">Showing <strong id="resultCount">30</strong> contests</div>
+      <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+        <option value="default">Sort: Default</option>
+        <option value="deadline">Sort: Deadline (soonest)</option>
+        <option value="alpha">Sort: A → Z</option>
+        <option value="featured">Sort: Featured first</option>
+      </select>
+    </div>
+
+    <div class="featured-banner">
+      <div class="featured-banner-left">
+        <div class="featured-banner-icon">⭐</div>
+        <div class="featured-banner-text">
+          <h3>Featured Opportunities</h3>
+          <p>Highlighted contests with top awards and upcoming deadlines</p>
+        </div>
+      </div>
+      <span class="featured-banner-badge">Updated 2025–26</span>
+    </div>
+
+    <div class="cards-grid" id="cardsGrid"></div>
+  </main>
 </div>
 
-<main class="main">
-  <div class="grid" id="grid"></div>
-</main>
-
+<!-- FOOTER -->
 <footer>
-  Student Contest Finder · Canada · Free to use · Data updated for 2025–26 school year<br>
-  <span style="font-size:12px;">Want to feature your contest? <a href="mailto:hello@studentcontestfinder.ca" style="color:var(--accent);">Contact us</a></span>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Student Contest Finder</div>
+        <p class="footer-tagline">Canada's free directory of student competitions — Math, Science, Essay, Debate, and Arts for Grades 1–12.</p>
+        <a href="mailto:hello@studentcontestfinder.ca" style="color:rgba(255,255,255,.6);font-size:13px;">hello@studentcontestfinder.ca</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contests</div>
+        <a href="#">Math</a><a href="#">Essay</a><a href="#">Debate</a><a href="#">Science</a><a href="#">Arts</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">By Grade</div>
+        <a href="#">Grades 1–3</a><a href="#">Grades 4–6</a><a href="#">Grades 7–9</a><a href="#">Grades 10–12</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <a href="#">About Us</a><a href="#">List a Contest</a><a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Student Contest Finder · Canada</span>
+      <div style="display:flex;gap:1rem"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
 </footer>
 
 <script>
 const contests = [
-  {name:"Canadian Open Mathematics Challenge (COMC)",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"October",reward:"Scholarship",rewardD:"Top ~50 qualify for Canadian Math Olympiad; university scholarship opportunities",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/",desc:"Canada's most prestigious high school math contest. Top scorers advance to the Canadian Math Olympiad and can represent Canada internationally.",featured:false},
+  {name:"Canadian Open Mathematics Challenge (COMC)",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"October",reward:"Scholarship",rewardD:"Top ~50 qualify for Canadian Math Olympiad; university scholarship opportunities",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/",desc:"Canada's most prestigious high school math contest. Top scorers advance to the Canadian Math Olympiad and can represent Canada internationally.",featured:true},
   {name:"Canadian Mathematical Olympiad (CMO)",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"March (invite only)",reward:"Recognition",rewardD:"National recognition; pathway to IMO Team Canada",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/",desc:"Canada's premier proof-based math competition, by invitation from COMC results. Selects team for the International Mathematical Olympiad.",featured:false},
   {name:"Canada Jay Mathematical Competition (CJMC)",cat:"Math",grades:["1–3","4–6","7–9"],eli:"Yes",deadline:"November",reward:"Certificate",rewardD:"Certificates and national recognition; official for Grades K–8",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/cjmc/",desc:"Canadian math competition open to Grades K–8, with questions based on Grades 5–8 curriculum. A fun fall activity to build problem-solving skills.",featured:false},
   {name:"Canada Lynx Mathematical Competition (CLMC)",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"October",reward:"Certificate",rewardD:"Certificates and recognition; perfect scorers invited to write COMC free of charge",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/clmc/",desc:"Open to all K–12 students but designed for Grades 7–12; based on Grades 7–11 curriculum. Serves as a warm-up for the COMC in October.",featured:false},
   {name:"CEMC Gauss Contests",cat:"Math",grades:["7–9"],eli:"Yes",deadline:"May",reward:"Certificate",rewardD:"Certificates; honour roll; national recognition",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Multiple-choice math contests for Grades 7 and 8 hosted by the Centre for Education in Mathematics and Computing.",featured:false},
   {name:"CEMC Pascal, Cayley & Fermat Contests",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"February",reward:"Certificate",rewardD:"Certificates, honour roll, and school recognition",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Grade-specific multiple-choice contests for Grades 9–11 encouraging mathematical problem-solving and critical thinking.",featured:false},
-  {name:"CEMC Euclid Contest",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"March / April",reward:"Scholarship",rewardD:"Strong performance considered for UWaterloo Faculty of Mathematics entrance scholarships",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests/euclid.html",desc:"Challenging senior-level math contest for Grade 12 with short-answer and full-solution questions.",featured:false},
+  {name:"CEMC Euclid Contest",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"March / April",reward:"Scholarship",rewardD:"Strong performance considered for UWaterloo Faculty of Mathematics entrance scholarships",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests/euclid.html",desc:"Challenging senior-level math contest for Grade 12 with short-answer and full-solution questions.",featured:true},
   {name:"CEMC Fryer, Galois & Hypatia Contests",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"April",reward:"Certificate",rewardD:"Certificates and national recognition",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Full-solution contests for Grades 9–11 that develop problem-solving and mathematical communication skills.",featured:false},
   {name:"CEMC Canadian Senior & Intermediate Math Contests",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"November",reward:"Scholarship",rewardD:"Top performers considered for UWaterloo math admission scholarships",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests/csimc",desc:"Concurrent contests for Grades 9–12; strong performance supports UWaterloo math admissions.",featured:false},
   {name:"Kangaroo Math Contest",cat:"Math",grades:["1–3","4–6","7–9","10–12"],eli:"Yes",deadline:"March",reward:"Certificate",rewardD:"Certificates and prizes for top performers",mode:"Both",org:"Math Kangaroo Canada",url:"https://mathkangaroo.ca/en",desc:"International multiple-choice math contest with 5 grade levels from Grades 1–12, held annually worldwide including Canada.",featured:false},
   {name:"AMC 8 (American Mathematics Competition)",cat:"Math",grades:["4–6","7–9"],eli:"Yes",deadline:"November",reward:"Certificate",rewardD:"Certificates; top scorers qualify for AIME and further competitions",mode:"In-Person",org:"Mathematical Association of America",url:"https://maa.org/math-competitions",desc:"AMC 8 is for Grade 8 and under; widely written in Canadian schools as a pathway to higher math competitions.",featured:false},
   {name:"AMC 10 & 12 (American Mathematics Competition)",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"February",reward:"Certificate",rewardD:"Certificates; top scorers qualify for AIME and further competitions",mode:"In-Person",org:"Mathematical Association of America",url:"https://maa.org/math-competitions",desc:"AMC 10/12 for Grades 10–12; widely written in Canadian schools as a pathway to higher math competitions.",featured:false},
-  {name:"Fraser Institute Student Essay Contest",cat:"Essay",grades:["10–12"],eli:"Yes",deadline:"May (approx.)",reward:"Cash",rewardD:"Cash prizes for top essays; amounts vary by year",mode:"Online",org:"Fraser Institute",url:"https://www.fraserinstitute.org/education-programs/student-essay-contest",desc:"Annual economics-themed essay contest open to Canadian high school and post-secondary students; 1,000–1,500 words.",featured:false},
+  {name:"Fraser Institute Student Essay Contest",cat:"Essay",grades:["10–12"],eli:"Yes",deadline:"May (approx.)",reward:"Cash",rewardD:"Cash prizes for top essays; amounts vary by year",mode:"Online",org:"Fraser Institute",url:"https://www.fraserinstitute.org/education-programs/student-essay-contest",desc:"Annual economics-themed essay contest open to Canadian high school and post-secondary students; 1,000–1,500 words.",featured:true},
   {name:"Polar Expressions Publishing Student Contests",cat:"Essay",grades:["4–6","7–9","10–12"],eli:"Yes",deadline:"November / March",reward:"Cash",rewardD:"$300 (1st), $200 (2nd), $100 (3rd) for poetry and short story divisions",mode:"Online",org:"Polar Expressions Publishing",url:"https://polarexpressions.ca",desc:"Canadian writing contests in short story and poetry for Grades 4–12 students; multiple contests per year.",featured:false},
   {name:"Jessamy Stursberg Poetry Prize for Canadian Youth",cat:"Essay",grades:["7–9","10–12"],eli:"Yes",deadline:"April",reward:"Cash",rewardD:"Cash prizes for winners; amounts listed on website",mode:"Online",org:"League of Canadian Poets",url:"https://poets.ca",desc:"Annual poetry contest for Grades 7–12 Canadian students; one poem submission per student.",featured:false},
   {name:"Vancouver Writers Fest Youth Writing Contest",cat:"Essay",grades:["4–6","7–9","10–12"],eli:"Yes",deadline:"May 31",reward:"Recognition",rewardD:"Recognition and publication opportunities for winners",mode:"Online",org:"Vancouver Writers Festival",url:"https://writersfest.bc.ca",desc:"Annual contest for Grades 5–12; short stories and essays up to 1,000–1,500 words.",featured:false},
   {name:"James Bartleman Indigenous Youth Creative Writing Awards",cat:"Essay",grades:["1–3","4–6","7–9"],eli:"Yes (Ontario Indigenous)",deadline:"May 31",reward:"Cash",rewardD:"Large cash prize; two age categories: under 12 and 13–18",mode:"Online",org:"Office of the Lieutenant Governor of Ontario",url:"https://ltgov.on.ca",desc:"Recognizes outstanding Indigenous youth writers in Ontario aged up to 18; accepts poems, stories, essays, comics, or hybrid pieces.",featured:false},
   {name:"Kids Write 4 Kids",cat:"Essay",grades:["4–6","7–9"],eli:"Yes",deadline:"March 31",reward:"Recognition",rewardD:"Winning stories published in a book; author recognition",mode:"Online",org:"The Ripple Foundation",url:"https://kidswrite4kids.com",desc:"Annual writing contest for Grades 4–8; winning stories are published and proceeds support charitable causes.",featured:false},
-  {name:"CSDF National Debate Championships",cat:"Debate",grades:["7–9","10–12"],eli:"Yes",deadline:"Varies (qualify locally)",reward:"Recognition",rewardD:"National title, trophies, and selection for international competitions",mode:"In-Person",org:"Canadian Student Debating Federation",url:"https://csdf.ca",desc:"Canada's national debate championships (Senior and Junior); students qualify through provincial associations.",featured:false},
+  {name:"CSDF National Debate Championships",cat:"Debate",grades:["7–9","10–12"],eli:"Yes",deadline:"Varies (qualify locally)",reward:"Recognition",rewardD:"National title, trophies, and selection for international competitions",mode:"In-Person",org:"Canadian Student Debating Federation",url:"https://csdf.ca",desc:"Canada's national debate championships (Senior and Junior); students qualify through provincial associations.",featured:true},
   {name:"Speech and Debate Canada – National Persuasive Speaking",cat:"Debate",grades:["7–9","10–12"],eli:"Yes",deadline:"January (submission)",reward:"Cash",rewardD:"$500 per winning category; half donated to a Canadian charity of winner's choice",mode:"Online",org:"Speech and Debate Canada Foundation",url:"https://www.speechanddebatecanada.com",desc:"Annual persuasive speaking competition for Canadian students in Grades 6–12; Junior and Senior categories in English and French.",featured:false},
   {name:"World Schools Debating Championships – Team Canada",cat:"Debate",grades:["10–12"],eli:"Yes (via CSDF selection)",deadline:"Annual (July)",reward:"Recognition",rewardD:"National team representation; international recognition",mode:"In-Person",org:"WSDC / Canadian Student Debating Federation",url:"https://www.wsdcdebating.org",desc:"Global championship for high school debaters; Canadian team selected through CSDF National BP Championships.",featured:false},
   {name:"Ontario Student Debating Union (OSDU) Provincial Championship",cat:"Debate",grades:["7–9","10–12"],eli:"Yes (Ontario)",deadline:"Spring",reward:"Recognition",rewardD:"Provincial title; pathway to national and international competitions",mode:"In-Person",org:"Ontario Student Debating Union",url:"https://osdu.ca",desc:"Annual Ontario provincial debate championship; pathway to national CSDF events and Team Canada selection.",featured:false},
-  {name:"Canada-Wide Science Fair (CWSF)",cat:"Science",grades:["7–9","10–12"],eli:"Yes",deadline:"May (regional fairs precede)",reward:"Scholarship",rewardD:"Over $1.3 million in scholarships and awards; top projects sent to ISEF and EUCYS",mode:"In-Person",org:"Youth Science Canada",url:"https://cwsf-espc.ca",desc:"Canada's largest youth STEM event for Grades 7–12; students qualify through regional fairs, then compete nationally for major scholarships.",featured:false},
+  {name:"Canada-Wide Science Fair (CWSF)",cat:"Science",grades:["7–9","10–12"],eli:"Yes",deadline:"May (regional fairs precede)",reward:"Scholarship",rewardD:"Over $1.3 million in scholarships and awards; top projects sent to ISEF and EUCYS",mode:"In-Person",org:"Youth Science Canada",url:"https://cwsf-espc.ca",desc:"Canada's largest youth STEM event for Grades 7–12; students qualify through regional fairs, then compete nationally for major scholarships.",featured:true},
   {name:"Let's Talk Science Challenge",cat:"Science",grades:["4–6","7–9"],eli:"Yes",deadline:"Spring (March–May)",reward:"Recognition",rewardD:"Free to enter; recognition and prizes for top teams",mode:"Both",org:"Let's Talk Science",url:"https://letstalkscience.ca/events/lets-talk-science-challenge",desc:"Free team-based STEM competition for Grades 6–8; includes a quiz and engineering challenge held across Canada and online.",featured:false},
   {name:"Regeneron ISEF (via Youth Science Canada)",cat:"Science",grades:["10–12"],eli:"Yes (via CWSF)",deadline:"May",reward:"Cash",rewardD:"Up to tens of thousands USD in awards; prestigious international recognition",mode:"In-Person",org:"Society for Science / Youth Science Canada",url:"https://youthscience.ca/science-fairs/team-canada/",desc:"World's largest high school science fair; Canadians qualify through CWSF to represent Canada as Team Canada-ISEF.",featured:false},
   {name:"ExploraVision (Toshiba/NSTA)",cat:"Science",grades:["4–6","7–9","10–12"],eli:"Yes",deadline:"January 31",reward:"Cash",rewardD:"US EE Savings Bonds worth $10,000 for winning teams; other prizes for finalists",mode:"Online",org:"Toshiba / NSTA",url:"https://www.exploravision.org",desc:"Futuristic STEM challenge for teams of 2–4 in Grades 4–12 from US or Canadian schools; envision technology 20 years ahead.",featured:false},
   {name:"Canadian Computing Competition (CCC)",cat:"Science",grades:["7–9","10–12"],eli:"Yes",deadline:"February",reward:"Certificate",rewardD:"Certificates; top performers qualify for Canadian Computing Olympiad",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Annual programming competition for secondary school students; accessible to beginners and challenges experienced coders.",featured:false},
-  {name:"Canadian Art Inspiration Student Challenge",cat:"Arts",grades:["7–9","10–12"],eli:"Yes",deadline:"April 30",reward:"Cash",rewardD:"Cash prizes; showcase at Art Toronto, Canada's largest art fair",mode:"Online",org:"Art Canada Institute",url:"https://www.aci-iac.ca/education/art-challenge/",desc:"Annual visual art challenge for Grades 7–12; create original artwork inspired by a historical or contemporary Canadian artist.",featured:false},
+  {name:"Canadian Art Inspiration Student Challenge",cat:"Arts",grades:["7–9","10–12"],eli:"Yes",deadline:"April 30",reward:"Cash",rewardD:"Cash prizes; showcase at Art Toronto, Canada's largest art fair",mode:"Online",org:"Art Canada Institute",url:"https://www.aci-iac.ca/education/art-challenge/",desc:"Annual visual art challenge for Grades 7–12; create original artwork inspired by a historical or contemporary Canadian artist.",featured:true},
   {name:"Canada Youth Visual Art Contest (CYVAC)",cat:"Arts",grades:["1–3","4–6","7–9","10–12"],eli:"Yes",deadline:"Varies (check website)",reward:"Recognition",rewardD:"Certificates, awards, and international exposure",mode:"Both",org:"Youth Initiative Vancouver / Academy of Modern Art",url:"https://aoma.ca/cyvac/",desc:"International youth art competition based in Canada for children and youth of all ages; promotes cultural exchange and arts education.",featured:false},
   {name:"Applied Arts Student Awards",cat:"Arts",grades:["10–12"],eli:"Yes",deadline:"May 22",reward:"Recognition",rewardD:"Featured in Applied Arts Awards Annual; online Winners Gallery; official award badge and certificate",mode:"Online",org:"Applied Arts Media",url:"https://www.appliedartsmag.com/awards/",desc:"Annual awards celebrating student achievement in visual communications and creative arts across Canada.",featured:false},
 ];
 
 let activeCat = "All";
 
+// Populate category counts
+function updateCounts(list) {
+  const cats = ["All","Math","Essay","Debate","Science","Arts"];
+  cats.forEach(c => {
+    const el = document.getElementById('cnt-' + c);
+    if (el) el.textContent = c === "All" ? list.length : list.filter(x => x.cat === c).length;
+  });
+}
+
 function setCat(btn) {
-  document.querySelectorAll('#catPills .pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    b.className = 'cat-btn';
+  });
   activeCat = btn.dataset.cat;
+  btn.classList.add(activeCat === "All" ? 'active-all' : 'active-' + activeCat);
   applyFilters();
+}
+
+function getCheckedRewards() {
+  return Array.from(document.querySelectorAll('.reward-filters input:checked')).map(i => i.value);
 }
 
 function applyFilters() {
   const search = document.getElementById('searchInput').value.toLowerCase();
   const grade  = document.getElementById('gradeFilter').value;
   const mode   = document.getElementById('modeFilter').value;
+  const rewards = getCheckedRewards();
+  const sort   = document.getElementById('sortSelect').value;
 
-  const filtered = contests.filter(c => {
+  let filtered = contests.filter(c => {
     if (activeCat !== "All" && c.cat !== activeCat) return false;
     if (grade && !c.grades.includes(grade)) return false;
-    if (mode && c.mode !== mode && !(mode === "Both" && c.mode === "Both")) {
+    if (mode) {
       if (mode === "Online" && c.mode !== "Online" && c.mode !== "Both") return false;
       if (mode === "In-Person" && c.mode !== "In-Person" && c.mode !== "Both") return false;
       if (mode === "Both" && c.mode !== "Both") return false;
     }
+    if (rewards.length && !rewards.includes(c.reward)) return false;
     if (search && !c.name.toLowerCase().includes(search) && !c.org.toLowerCase().includes(search) && !c.desc.toLowerCase().includes(search)) return false;
     return true;
   });
 
-  document.getElementById('filterCount').textContent = `Showing ${filtered.length} contest${filtered.length !== 1 ? 's' : ''}`;
-  renderGrid(filtered);
+  if (sort === "alpha") filtered.sort((a,b) => a.name.localeCompare(b.name));
+  else if (sort === "featured") filtered.sort((a,b) => b.featured - a.featured);
+
+  updateCounts(filtered);
+  document.getElementById('resultCount').textContent = filtered.length;
+  renderCards(filtered);
 }
 
-function rewardTag(r) {
-  const map = { Cash:'tag-green', Scholarship:'tag-green', Certificate:'tag-neutral', Recognition:'tag-neutral' };
-  return `<span class="tag ${map[r]||'tag-neutral'}">${r}</span>`;
+function modeIcon(m) {
+  return m === "Online" ? "💻" : m === "In-Person" ? "🏫" : "💻🏫";
 }
 
-function renderGrid(list) {
-  const grid = document.getElementById('grid');
+function renderCards(list) {
+  const grid = document.getElementById('cardsGrid');
   if (!list.length) {
     grid.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><h3>No contests found</h3><p>Try adjusting your filters or search term.</p></div>`;
     return;
   }
   grid.innerHTML = list.map((c, i) => `
-    <div class="card" style="animation-delay:${Math.min(i * 0.03, 0.3)}s">
-      <div class="card-top">
-        <div class="card-name">${c.name}</div>
-        ${c.featured ? '<span class="featured-badge">⭐ Featured</span>' : ''}
-      </div>
-      <p class="card-desc">${c.desc}</p>
-      <div class="card-tags">
-        <span class="tag tag-${c.cat.toLowerCase()}">${c.cat}</span>
-        <span class="tag tag-neutral">${c.grades.join(', ')}</span>
-        <span class="tag tag-neutral">${c.mode}</span>
-        ${rewardTag(c.reward)}
-      </div>
-      <div class="card-meta">
-        <div class="meta-item"><span class="meta-label">Deadline</span><span class="meta-val">${c.deadline}</span></div>
-        <div class="meta-item"><span class="meta-label">Eligibility</span><span class="meta-val">${c.eli}</span></div>
-        <div class="meta-item" style="grid-column:1/-1"><span class="meta-label">Award</span><span class="meta-val">${c.rewardD}</span></div>
-      </div>
-      <div class="card-footer">
-        <span class="org-name">${c.org}</span>
-        <a class="visit-btn" href="${c.url}" target="_blank" rel="noopener">Visit →</a>
+    <div class="card ${c.featured ? 'is-featured' : ''}" style="animation-delay:${Math.min(i*.04,.4)}s">
+      <div class="card-inner">
+        <div class="card-left">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <div class="card-eyebrow ${c.cat}">${c.cat}${c.featured ? ' · ⭐ Featured' : ''}</div>
+              <div class="card-title">${c.name}</div>
+              <div class="card-org">${c.org}</div>
+            </div>
+          </div>
+          <p class="card-desc">${c.desc}</p>
+          <div class="card-pills">
+            <span class="pill pill-cat ${c.cat}">${c.cat}</span>
+            <span class="pill pill-neutral">📚 ${c.grades.join(', ')}</span>
+            <span class="pill pill-neutral">${modeIcon(c.mode)} ${c.mode}</span>
+            <span class="pill ${c.reward==='Cash'||c.reward==='Scholarship'?'pill-green':'pill-neutral'}">${c.reward==='Cash'?'💵':c.reward==='Scholarship'?'🎓':c.reward==='Certificate'?'📜':'🏅'} ${c.reward}</span>
+            ${c.eli !== "Yes" ? `<span class="pill pill-gold">⚠️ ${c.eli}</span>` : ''}
+          </div>
+          <div class="card-meta-row">
+            <div class="meta-block"><div class="meta-label">Deadline</div><div class="meta-val">📅 ${c.deadline}</div></div>
+            <div class="meta-block"><div class="meta-label">Mode</div><div class="meta-val">${modeIcon(c.mode)} ${c.mode}</div></div>
+            <div class="meta-block"><div class="meta-label">Award</div><div class="meta-val">${c.rewardD.length > 50 ? c.rewardD.slice(0,50)+'…' : c.rewardD}</div></div>
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="reward-badge type-${c.reward}">
+            <div class="reward-badge-label">Award Type</div>
+            <div class="reward-badge-type">${c.reward}</div>
+          </div>
+          <a class="apply-btn ${c.featured ? 'btn-featured' : ''}" href="${c.url}" target="_blank" rel="noopener">Visit Site →</a>
+        </div>
       </div>
     </div>
   `).join('');
 }
 
-renderGrid(contests);
+// Init
+updateCounts(contests);
+renderCards(contests);
 </script>
 </body>
 </html>
