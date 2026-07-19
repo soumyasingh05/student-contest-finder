@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soumyasingh05.github.io/student-contest-finder/sitemap.xml
