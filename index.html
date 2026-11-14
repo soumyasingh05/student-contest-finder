@@ -206,6 +206,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 1.5rem}
   .filter-bar{position:static}
   .cat-nav{position:static}
 }
+.nav-links{display:flex;gap:4px}.browse{display:flex;flex-wrap:wrap;gap:2rem;padding:0 0 1.5rem}.browse div{display:flex;flex-direction:column;gap:.3rem}.browse h4{color:#fff;font-size:13px;margin-bottom:.2rem}.browse a{color:rgba(255,255,255,.6);font-size:13px;text-decoration:none}.browse a:hover{color:#fff}.card-title a{color:inherit;text-decoration:none}.card-title a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -217,6 +218,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 1.5rem}
       <span class="nav-logo-icon">🏆</span>
       <span class="nav-logo-text">Student Contest Finder <span class="nav-logo-sub">Canada</span></span>
     </a>
+    <div class="nav-links"><a class="nav-link" href="/math-contests-canada/">Math</a><a class="nav-link" href="/essay-competitions-canada/">Essay</a><a class="nav-link" href="/debate-competitions-canada/">Debate</a><a class="nav-link" href="/science-competitions-canada/">Science</a><a class="nav-link" href="/art-contests-canada/">Arts</a></div>
   </div>
 </nav>
 
@@ -314,6 +316,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 1.5rem}
         <a href="mailto:hello@studentcontestfinder.com" style="color:rgba(255,255,255,.6);font-size:13px;">hello@studentcontestfinder.com</a>
       </div>
     </div>
+    <div class="browse"><div><h4>Browse by category</h4><a href="/math-contests-canada/">Math contests</a><a href="/essay-competitions-canada/">Essay contests</a><a href="/debate-competitions-canada/">Debate contests</a><a href="/science-competitions-canada/">Science contests</a><a href="/art-contests-canada/">Arts contests</a></div><div><h4>Browse by grade</h4><a href="/grades-1-3-contests-canada/">Grades 1–3</a><a href="/grades-4-6-contests-canada/">Grades 4–6</a><a href="/grades-7-9-contests-canada/">Grades 7–9</a><a href="/grades-10-12-contests-canada/">Grades 10–12</a></div></div>
     <div class="footer-bottom">
       <span>© 2026 Student Contest Finder · Canada</span>
     </div>
@@ -323,46 +326,760 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2.5rem 1.5rem}
 <script>
 // deadlineSort: ISO-ish sortable date string (YYYY-MM-DD) when exact date is known, else null (treated as "no exact date" - always shown, sorted last)
 const contests = [
-  {name:"Canadian Open Mathematics Challenge (COMC)",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"October 29, 2026",deadlineSort:"2026-10-29",reward:"Scholarship",rewardD:"Top ~50 qualify for Canadian Math Olympiad; university scholarship opportunities",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/comc/comc2025/",desc:"Canada's most prestigious high school math contest. Top scorers advance to the Canadian Math Olympiad and can represent Canada internationally.",featured:true},
-  {name:"Canadian Mathematical Olympiad (CMO)",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"March 2027 (invite only)",deadlineSort:"2027-03-01",reward:"Recognition",rewardD:"National recognition; pathway to IMO Team Canada",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/",desc:"Canada's premier proof-based math competition, by invitation from COMC results. Selects team for the International Mathematical Olympiad.",featured:false},
-  {name:"Canada Jay Mathematical Competition (CJMC)",cat:"Math",grades:["1–3","4–6","7–9"],eli:"Yes",deadline:"November 2026",deadlineSort:"2026-11-15",reward:"Certificate",rewardD:"Certificates and national recognition; official for Grades K–8",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/cjmc/",desc:"Canadian math competition open to Grades K–8, with questions based on Grades 5–8 curriculum. A fun fall activity to build problem-solving skills.",featured:false},
-  {name:"Canada Lynx Mathematical Competition (CLMC)",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"October 2026",deadlineSort:"2026-10-15",reward:"Certificate",rewardD:"Certificates and recognition; perfect scorers invited to write COMC free of charge",mode:"In-Person",org:"Canadian Mathematical Society",url:"https://cms.math.ca/competitions/clmc/",desc:"Open to all K–12 students but designed for Grades 7–12; based on Grades 7–11 curriculum. Serves as a warm-up for the COMC in October.",featured:false},
-  {name:"CEMC Gauss Contests",cat:"Math",grades:["7–9"],eli:"Yes",deadline:"May 10–21, 2027",deadlineSort:"2027-05-10",reward:"Certificate",rewardD:"Certificates; honour roll; national recognition",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Multiple-choice math contests for Grades 7 and 8 hosted by the Centre for Education in Mathematics and Computing.",featured:false},
-  {name:"CEMC Pascal, Cayley & Fermat Contests",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"February 25, 2027",deadlineSort:"2027-02-25",reward:"Certificate",rewardD:"Certificates, honour roll, and school recognition",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Grade-specific multiple-choice contests for Grades 9–11 encouraging mathematical problem-solving and critical thinking.",featured:false},
-  {name:"CEMC Euclid Contest",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"April 7, 2027",deadlineSort:"2027-04-07",reward:"Scholarship",rewardD:"Strong performance considered for UWaterloo Faculty of Mathematics entrance scholarships",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests/euclid.html",desc:"Challenging senior-level math contest for Grade 12 with short-answer and full-solution questions.",featured:true},
-  {name:"CEMC Fryer, Galois & Hypatia Contests",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"April 8, 2027",deadlineSort:"2027-04-08",reward:"Certificate",rewardD:"Certificates and national recognition",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Full-solution contests for Grades 9–11 that develop problem-solving and mathematical communication skills.",featured:false},
-  {name:"CEMC Canadian Senior & Intermediate Math Contests",cat:"Math",grades:["7–9","10–12"],eli:"Yes",deadline:"November 19, 2026",deadlineSort:"2026-11-19",reward:"Scholarship",rewardD:"Top performers considered for UWaterloo math admission scholarships",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests/csimc",desc:"Concurrent contests for Grades 9–12; strong performance supports UWaterloo math admissions.",featured:false},
-  {name:"Kangaroo Math Contest",cat:"Math",grades:["1–3","4–6","7–9","10–12"],eli:"Yes",deadline:"March 2027",deadlineSort:"2027-03-15",reward:"Certificate",rewardD:"Certificates and prizes for top performers",mode:"Both",org:"Math Kangaroo Canada",url:"https://mathkangaroo.ca/en",desc:"International multiple-choice math contest with 5 grade levels from Grades 1–12, held annually worldwide including Canada.",featured:false},
-  {name:"AMC 8 (American Mathematics Competition)",cat:"Math",grades:["4–6","7–9"],eli:"Yes",deadline:"November 2026",deadlineSort:"2026-11-10",reward:"Certificate",rewardD:"Certificates; top scorers qualify for AIME and further competitions",mode:"In-Person",org:"Mathematical Association of America",url:"https://maa.org/math-competitions",desc:"AMC 8 is for Grade 8 and under; widely written in Canadian schools as a pathway to higher math competitions.",featured:false},
-  {name:"AMC 10 & 12 (American Mathematics Competition)",cat:"Math",grades:["10–12"],eli:"Yes",deadline:"February 2027",deadlineSort:"2027-02-05",reward:"Certificate",rewardD:"Certificates; top scorers qualify for AIME and further competitions",mode:"In-Person",org:"Mathematical Association of America",url:"https://maa.org/math-competitions",desc:"AMC 10/12 for Grades 10–12; widely written in Canadian schools as a pathway to higher math competitions.",featured:false},
-  {name:"Fraser Institute Student Essay Contest",cat:"Essay",grades:["10–12"],eli:"Yes",deadline:"May 2027 (approx.)",deadlineSort:"2027-05-01",reward:"Cash",rewardD:"Cash prizes for top essays; amounts vary by year",mode:"Online",org:"Fraser Institute",url:"https://www.fraserinstitute.org/education-programs/student-essay-contest",desc:"Annual economics-themed essay contest open to Canadian high school and post-secondary students; 1,000–1,500 words.",featured:true},
-  {name:"Polar Expressions Publishing Student Contests",cat:"Essay",grades:["4–6","7–9","10–12"],eli:"Yes",deadline:"November 20, 2026",deadlineSort:"2026-11-20",reward:"Cash",rewardD:"$300 (1st), $200 (2nd), $100 (3rd) for poetry and short story divisions",mode:"Online",org:"Polar Expressions Publishing",url:"https://polarexpressions.ca",desc:"Canadian writing contests in short story and poetry for Grades 4–12 students; multiple contests per year.",featured:false},
-  {name:"Jessamy Stursberg Poetry Prize for Canadian Youth",cat:"Essay",grades:["7–9","10–12"],eli:"Yes",deadline:"April 2027",deadlineSort:"2027-04-15",reward:"Cash",rewardD:"Cash prizes for winners; amounts listed on website",mode:"Online",org:"League of Canadian Poets",url:"https://poets.ca",desc:"Annual poetry contest for Grades 7–12 Canadian students; one poem submission per student.",featured:false},
-  {name:"Vancouver Writers Fest Youth Writing Contest",cat:"Essay",grades:["4–6","7–9","10–12"],eli:"Yes",deadline:"May 31, 2027",deadlineSort:"2027-05-31",reward:"Recognition",rewardD:"Recognition and publication opportunities for winners",mode:"Online",org:"Vancouver Writers Festival",url:"https://writersfest.bc.ca",desc:"Annual contest for Grades 5–12; short stories and essays up to 1,000–1,500 words.",featured:false},
-  {name:"James Bartleman Indigenous Youth Creative Writing Awards",cat:"Essay",grades:["1–3","4–6","7–9"],eli:"Yes (Ontario Indigenous)",deadline:"May 31, 2027",deadlineSort:"2027-05-31",reward:"Cash",rewardD:"Large cash prize; two age categories: under 12 and 13–18",mode:"Online",org:"Office of the Lieutenant Governor of Ontario",url:"https://ltgov.on.ca",desc:"Recognizes outstanding Indigenous youth writers in Ontario aged up to 18; accepts poems, stories, essays, comics, or hybrid pieces.",featured:false},
-  {name:"Kids Write 4 Kids",cat:"Essay",grades:["4–6","7–9"],eli:"Yes",deadline:"March 31, 2027",deadlineSort:"2027-03-31",reward:"Recognition",rewardD:"Winning stories published in a book; author recognition",mode:"Online",org:"The Ripple Foundation",url:"https://kidswrite4kids.com",desc:"Annual writing contest for Grades 4–8; winning stories are published and proceeds support charitable causes.",featured:false},
-  {name:"CSDF National Debate Championships",cat:"Debate",grades:["7–9","10–12"],eli:"Yes",deadline:"Varies (qualify locally)",deadlineSort:null,reward:"Recognition",rewardD:"National title, trophies, and selection for international competitions",mode:"In-Person",org:"Canadian Student Debating Federation",url:"https://csdf.ca",desc:"Canada's national debate championships (Senior and Junior); students qualify through provincial associations.",featured:true},
-  {name:"Speech and Debate Canada – National Persuasive Speaking",cat:"Debate",grades:["7–9","10–12"],eli:"Yes",deadline:"January 2027 (submission)",deadlineSort:"2027-01-15",reward:"Cash",rewardD:"$500 per winning category; half donated to a Canadian charity of winner's choice",mode:"Online",org:"Speech and Debate Canada Foundation",url:"https://www.speechanddebatecanada.com",desc:"Annual persuasive speaking competition for Canadian students in Grades 6–12; Junior and Senior categories in English and French.",featured:false},
-  {name:"World Schools Debating Championships – Team Canada",cat:"Debate",grades:["10–12"],eli:"Yes (via CSDF selection)",deadline:"July 2027 (annual)",deadlineSort:"2027-07-01",reward:"Recognition",rewardD:"National team representation; international recognition",mode:"In-Person",org:"WSDC / Canadian Student Debating Federation",url:"https://www.wsdcdebating.org",desc:"Global championship for high school debaters; Canadian team selected through CSDF National BP Championships.",featured:false},
-  {name:"Ontario Student Debating Union (OSDU) Provincial Championship",cat:"Debate",grades:["7–9","10–12"],eli:"Yes (Ontario)",deadline:"Spring 2027",deadlineSort:"2027-04-01",reward:"Recognition",rewardD:"Provincial title; pathway to national and international competitions",mode:"In-Person",org:"Ontario Student Debating Union",url:"https://osdu.ca",desc:"Annual Ontario provincial debate championship; pathway to national CSDF events and Team Canada selection.",featured:false},
-  {name:"Canada-Wide Science Fair (CWSF)",cat:"Science",grades:["7–9","10–12"],eli:"Yes",deadline:"May 2027 (regional fairs precede)",deadlineSort:"2027-05-01",reward:"Scholarship",rewardD:"Over $1.3 million in scholarships and awards; top projects sent to ISEF and EUCYS",mode:"In-Person",org:"Youth Science Canada",url:"https://cwsf-espc.ca",desc:"Canada's largest youth STEM event for Grades 7–12; students qualify through regional fairs, then compete nationally for major scholarships.",featured:true},
-  {name:"Let's Talk Science Challenge",cat:"Science",grades:["4–6","7–9"],eli:"Yes",deadline:"Spring 2027 (March–May)",deadlineSort:"2027-03-01",reward:"Recognition",rewardD:"Free to enter; recognition and prizes for top teams",mode:"Both",org:"Let's Talk Science",url:"https://letstalkscience.ca/events/lets-talk-science-challenge",desc:"Free team-based STEM competition for Grades 6–8; includes a quiz and engineering challenge held across Canada and online.",featured:false},
-  {name:"Regeneron ISEF (via Youth Science Canada)",cat:"Science",grades:["10–12"],eli:"Yes (via CWSF)",deadline:"May 2027",deadlineSort:"2027-05-10",reward:"Cash",rewardD:"Up to tens of thousands USD in awards; prestigious international recognition",mode:"In-Person",org:"Society for Science / Youth Science Canada",url:"https://youthscience.ca/science-fairs/team-canada/",desc:"World's largest high school science fair; Canadians qualify through CWSF to represent Canada as Team Canada-ISEF.",featured:false},
-  {name:"ExploraVision (Toshiba/NSTA)",cat:"Science",grades:["4–6","7–9","10–12"],eli:"Yes",deadline:"January 31, 2027",deadlineSort:"2027-01-31",reward:"Cash",rewardD:"US EE Savings Bonds worth $10,000 for winning teams; other prizes for finalists",mode:"Online",org:"Toshiba / NSTA",url:"https://www.exploravision.org",desc:"Futuristic STEM challenge for teams of 2–4 in Grades 4–12 from US or Canadian schools; envision technology 20 years ahead.",featured:false},
-  {name:"Canadian Computing Competition (CCC)",cat:"Science",grades:["7–9","10–12"],eli:"Yes",deadline:"February 18, 2027",deadlineSort:"2027-02-18",reward:"Certificate",rewardD:"Certificates; top performers qualify for Canadian Computing Olympiad",mode:"In-Person",org:"University of Waterloo – CEMC",url:"https://cemc.uwaterloo.ca/contests",desc:"Annual programming competition for secondary school students; accessible to beginners and challenges experienced coders.",featured:false},
-  {name:"Canadian Art Inspiration Student Challenge",cat:"Arts",grades:["7–9","10–12"],eli:"Yes",deadline:"April 30, 2027",deadlineSort:"2027-04-30",reward:"Cash",rewardD:"Cash prizes; showcase at Art Toronto, Canada's largest art fair",mode:"Online",org:"Art Canada Institute",url:"https://www.aci-iac.ca/education/art-challenge/",desc:"Annual visual art challenge for Grades 7–12; create original artwork inspired by a historical or contemporary Canadian artist.",featured:true},
-  {name:"Canada Youth Visual Art Contest (CYVAC)",cat:"Arts",grades:["1–3","4–6","7–9","10–12"],eli:"Yes",deadline:"Varies (check website)",deadlineSort:null,reward:"Recognition",rewardD:"Certificates, awards, and international exposure",mode:"Both",org:"Youth Initiative Vancouver / Academy of Modern Art",url:"https://aoma.ca/cyvac/",desc:"International youth art competition based in Canada for children and youth of all ages; promotes cultural exchange and arts education.",featured:false},
-  {name:"Applied Arts Student Awards",cat:"Arts",grades:["10–12"],eli:"Yes",deadline:"May 22, 2027",deadlineSort:"2027-05-22",reward:"Recognition",rewardD:"Featured in Applied Arts Awards Annual; online Winners Gallery; official award badge and certificate",mode:"Online",org:"Applied Arts Media",url:"https://www.appliedartsmag.com/awards/",desc:"Annual awards celebrating student achievement in visual communications and creative arts across Canada.",featured:false},
-  {name:"Cambridge Re:Think Essay Competition",cat:"Essay",grades:["7–9","10–12"],eli:"Yes",deadline:"May 31, 2027",deadlineSort:"2027-05-31",reward:"Recognition",rewardD:"Award Ceremony and Dinner at University of Cambridge for top entrants; certificates for all",mode:"Online",org:"Cambridge Centre for International Research",url:"https://cambridge-research.org/essay-competition/",desc:"Global essay competition for students aged 11–18 who haven't started undergraduate studies; open to talented students worldwide including Canada.",featured:true,intl:true},
-  {name:"John Locke Institute Global Essay Prize",cat:"Essay",grades:["7–9","10–12"],eli:"Yes",deadline:"May 31, 2027",deadlineSort:"2027-05-31",reward:"Recognition",rewardD:"Cash prizes for top essays; scholarships to John Locke summer programs; global recognition",mode:"Online",org:"John Locke Institute",url:"https://www.johnlockeinstitute.com/essay-competition",desc:"Prestigious global essay competition open to students of any age under 19 from any country, across subjects like Politics, Economics, Philosophy, Science.",featured:true,intl:true},
-  {name:"Scholastic Art & Writing Awards",cat:"Essay",grades:["7–9","10–12"],eli:"Yes",deadline:"December 2026 – January 2027 (varies by region)",deadlineSort:"2026-12-15",reward:"Recognition",rewardD:"Gold Key, Silver Key and Honorable Mention awards; national medalists win scholarships",mode:"Online",org:"Scholastic Inc.",url:"https://www.artandwriting.org/",desc:"One of the longest-running U.S. writing and art awards, explicitly open to Grades 7–12 students in the U.S. and Canada, across 28 categories.",featured:false,intl:true},
-  {name:"Optimist International Essay Contest",cat:"Essay",grades:["7–9","10–12"],eli:"Yes",deadline:"Fall 2026 (varies by district)",deadlineSort:"2026-10-01",reward:"Scholarship",rewardD:"Scholarships awarded at club, district, and international levels",mode:"Online",org:"Optimist International",url:"https://www.optimist.org/member/scholarships3.cfm",desc:"Open to students under 19 who haven't completed secondary school, including CEGEP students in Québec. Entered through local Optimist Clubs.",featured:false,intl:true},
-  {name:"International Youth Art Contest",cat:"Arts",grades:["1–3","4–6","7–9","10–12"],eli:"Yes",deadline:"Varies (check website)",deadlineSort:null,reward:"Recognition",rewardD:"Exhibition at International Art Museum of America in San Francisco; jury review by professional artists",mode:"Online",org:"International Art Museum of America",url:"https://iamasf.org/2026-international-youth-art-contest/",desc:"Global youth art competition and exhibition open to young artists worldwide, across painting, drawing, and digital art categories.",featured:false,intl:true},
-  {name:"International Kids Art Contest",cat:"Arts",grades:["1–3","4–6","7–9","10–12"],eli:"Yes",deadline:"October 2026 (varies by year)",deadlineSort:"2026-10-20",reward:"Certificate",rewardD:"Certificates and diplomas for all; final winners' art exhibited at Degallery",mode:"Online",org:"DEGA (Degallery)",url:"https://www.artdega.org/programs/international-kids-art-contest/",desc:"International juried art contest open to all countries for artists aged 4–17, judged on original style and artistic value.",featured:false,intl:true},
-  {name:"International Research Olympiad (IRO)",cat:"Science",grades:["7–9","10–12"],eli:"Yes",deadline:"Varies (check website)",deadlineSort:null,reward:"Certificate",rewardD:"Certificates and recognition for top scorers; global STEM research recognition",mode:"Online",org:"International Research Olympiad",url:"https://www.internationalresearcholympiad.org/",desc:"Global STEM research competition for students aged 13–18 worldwide, testing research and analytical skills beyond the classroom.",featured:false,intl:true},
-  {name:"International Independent Schools' Public Speaking Competition (IISPSC)",cat:"Debate",grades:["10–12"],eli:"Yes (League member schools)",deadline:"Spring 2027 (check with school)",deadlineSort:"2027-04-01",reward:"Recognition",rewardD:"Winners advance to the World Individual Debate and Public Speaking Tournament",mode:"In-Person",org:"IISPSC",url:"https://www.iispsc.com/",desc:"Annual public speaking competition open to League member independent schools across Canada, the U.S., UK, and other countries.",featured:false,intl:true},
+  {
+    "name": "Canadian Open Mathematics Challenge (COMC)",
+    "cat": "Math",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes (open to Grades 4–12; suggested Grades 8–12)",
+    "deadline": "2026 contest held Oct 29, 2026 (closed). Next expected fall 2027",
+    "deadlineSort": null,
+    "reward": "Scholarship",
+    "rewardD": "Top ~100–120 scorers are invited to the Canadian Mathematical Olympiad or Junior Olympiad; university scholarship opportunities",
+    "mode": "In-Person",
+    "org": "Canadian Mathematical Society",
+    "url": "https://cms.math.ca/competitions/comc/",
+    "desc": "Canada's most prestigious high school math contest. Top scorers advance to the Canadian Math Olympiad and can represent Canada internationally.",
+    "featured": true,
+    "rev": true
+  },
+  {
+    "name": "Canadian Mathematical Olympiad (CMO)",
+    "cat": "Math",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "March 2027 (by invitation after the COMC)",
+    "deadlineSort": "2027-03-01",
+    "reward": "Recognition",
+    "rewardD": "National recognition; pathway to IMO Team Canada",
+    "mode": "In-Person",
+    "org": "Canadian Mathematical Society",
+    "url": "https://cms.math.ca/competitions/",
+    "desc": "Canada's premier proof-based math competition, by invitation from COMC results. Selects team for the International Mathematical Olympiad.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "Canada Jay Mathematical Competition (CJMC)",
+    "cat": "Math",
+    "grades": [
+      "4–6",
+      "7–9"
+    ],
+    "eli": "Yes (open to Grades 2–8; suggested Grades 5–8)",
+    "deadline": "Registration closed Nov 12, 2026 (contest Nov 19). Next expected fall 2027",
+    "deadlineSort": null,
+    "reward": "Certificate",
+    "rewardD": "Certificates and national recognition; official for Grades K–8",
+    "mode": "In-Person",
+    "org": "Canadian Mathematical Society",
+    "url": "https://cms.math.ca/competitions/cjmc/",
+    "desc": "Canadian math competition open to Grades K–8, with questions based on Grades 5–8 curriculum. A fun fall activity to build problem-solving skills.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "Canada Lynx Mathematical Competition (CLMC)",
+    "cat": "Math",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes (open to Grades 4–12; suggested Grades 7–11)",
+    "deadline": "2026 contest held Oct 1, 2026 (closed). Next expected fall 2027",
+    "deadlineSort": null,
+    "reward": "Certificate",
+    "rewardD": "Certificates and recognition; perfect scorers invited to write COMC free of charge",
+    "mode": "In-Person",
+    "org": "Canadian Mathematical Society",
+    "url": "https://cms.math.ca/competitions/clmc/",
+    "desc": "Open to all K–12 students but designed for Grades 7–12; based on Grades 7–11 curriculum. Serves as a warm-up for the COMC in October.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "CEMC Gauss Contests",
+    "cat": "Math",
+    "grades": [
+      "7–9"
+    ],
+    "eli": "Yes",
+    "deadline": "May 10–21, 2027 (your school registers earlier)",
+    "deadlineSort": "2027-05-10",
+    "reward": "Certificate",
+    "rewardD": "Certificates; honour roll; national recognition",
+    "mode": "In-Person",
+    "org": "University of Waterloo – CEMC",
+    "url": "https://cemc.uwaterloo.ca/contests",
+    "desc": "Multiple-choice math contests for Grades 7 and 8 hosted by the Centre for Education in Mathematics and Computing.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "CEMC Pascal, Cayley & Fermat Contests",
+    "cat": "Math",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "Feb 23–24, 2027 (your school registers earlier)",
+    "deadlineSort": "2027-02-23",
+    "reward": "Certificate",
+    "rewardD": "Certificates, honour roll, and school recognition",
+    "mode": "In-Person",
+    "org": "University of Waterloo – CEMC",
+    "url": "https://cemc.uwaterloo.ca/contests",
+    "desc": "Grade-specific multiple-choice contests for Grades 9–11 encouraging mathematical problem-solving and critical thinking.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "CEMC Euclid Contest",
+    "cat": "Math",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "April 6, 2027 (your school registers earlier)",
+    "deadlineSort": "2027-04-06",
+    "reward": "Scholarship",
+    "rewardD": "Strong performance considered for UWaterloo Faculty of Mathematics entrance scholarships",
+    "mode": "In-Person",
+    "org": "University of Waterloo – CEMC",
+    "url": "https://cemc.uwaterloo.ca/contests/euclid.html",
+    "desc": "Challenging senior-level math contest for Grade 12 with short-answer and full-solution questions.",
+    "featured": true,
+    "rev": true
+  },
+  {
+    "name": "CEMC Fryer, Galois & Hypatia Contests",
+    "cat": "Math",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "April 7, 2027 (your school registers earlier)",
+    "deadlineSort": "2027-04-07",
+    "reward": "Certificate",
+    "rewardD": "Certificates and national recognition",
+    "mode": "In-Person",
+    "org": "University of Waterloo – CEMC",
+    "url": "https://cemc.uwaterloo.ca/contests",
+    "desc": "Full-solution contests for Grades 9–11 that develop problem-solving and mathematical communication skills.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "CEMC Canadian Senior & Intermediate Math Contests",
+    "cat": "Math",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "Contest Nov 18, 2026 (school orders close earlier; ask your teacher)",
+    "deadlineSort": "2026-11-18",
+    "reward": "Scholarship",
+    "rewardD": "Top performers considered for UWaterloo math admission scholarships",
+    "mode": "In-Person",
+    "org": "University of Waterloo – CEMC",
+    "url": "https://cemc.uwaterloo.ca/contests/csimc",
+    "desc": "Concurrent contests for Grades 9–12; strong performance supports UWaterloo math admissions.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "Kangaroo Math Contest",
+    "cat": "Math",
+    "grades": [
+      "1–3",
+      "4–6",
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "March 2027",
+    "deadlineSort": "2027-03-15",
+    "reward": "Certificate",
+    "rewardD": "Certificates and prizes for top performers",
+    "mode": "Both",
+    "org": "Math Kangaroo Canada",
+    "url": "https://mathkangaroo.ca/en",
+    "desc": "International multiple-choice math contest with 5 grade levels from Grades 1–12, held annually worldwide including Canada.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "AMC 8 (American Mathematics Competition)",
+    "cat": "Math",
+    "grades": [
+      "4–6",
+      "7–9"
+    ],
+    "eli": "Yes",
+    "deadline": "Jan 21–27, 2027 (register through a school or approved centre by early Jan 2027)",
+    "deadlineSort": "2027-01-05",
+    "reward": "Certificate",
+    "rewardD": "Certificates; top scorers qualify for AIME and further competitions",
+    "mode": "In-Person",
+    "org": "Mathematical Association of America",
+    "url": "https://maa.org/math-competitions",
+    "desc": "AMC 8 is for Grade 8 and under; widely written in Canadian schools as a pathway to higher math competitions.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "AMC 10 & 12 (American Mathematics Competition)",
+    "cat": "Math",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "2026 contests held Nov 5 and Nov 13, 2026 (closed). Next expected Nov 2027",
+    "deadlineSort": null,
+    "reward": "Certificate",
+    "rewardD": "Certificates; top scorers qualify for AIME and further competitions",
+    "mode": "In-Person",
+    "org": "Mathematical Association of America",
+    "url": "https://maa.org/math-competitions",
+    "desc": "AMC 10/12 for Grades 10–12; widely written in Canadian schools as a pathway to higher math competitions.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "Fraser Institute Student Essay Contest",
+    "cat": "Essay",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "May 2027 (approx.)",
+    "deadlineSort": "2027-05-01",
+    "reward": "Cash",
+    "rewardD": "Cash prizes for top essays; amounts vary by year",
+    "mode": "Online",
+    "org": "Fraser Institute",
+    "url": "https://www.fraserinstitute.org/education-programs/student-essay-contest",
+    "desc": "Annual economics-themed essay contest open to Canadian high school and post-secondary students; 1,000–1,500 words.",
+    "featured": true,
+    "rev": false
+  },
+  {
+    "name": "Polar Expressions Publishing Student Contests",
+    "cat": "Essay",
+    "grades": [
+      "4–6",
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "November 20, 2026",
+    "deadlineSort": "2026-11-20",
+    "reward": "Cash",
+    "rewardD": "$300 (1st), $200 (2nd), $100 (3rd) for poetry and short story divisions",
+    "mode": "Online",
+    "org": "Polar Expressions Publishing",
+    "url": "https://polarexpressions.ca",
+    "desc": "Canadian writing contests in short story and poetry for Grades 4–12 students; multiple contests per year.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Jessamy Stursberg Poetry Prize for Canadian Youth",
+    "cat": "Essay",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "April 2027",
+    "deadlineSort": "2027-04-15",
+    "reward": "Cash",
+    "rewardD": "Cash prizes for winners; amounts listed on website",
+    "mode": "Online",
+    "org": "League of Canadian Poets",
+    "url": "https://poets.ca",
+    "desc": "Annual poetry contest for Grades 7–12 Canadian students; one poem submission per student.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Vancouver Writers Fest Youth Writing Contest",
+    "cat": "Essay",
+    "grades": [
+      "4–6",
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "May 31, 2027",
+    "deadlineSort": "2027-05-31",
+    "reward": "Recognition",
+    "rewardD": "Recognition and publication opportunities for winners",
+    "mode": "Online",
+    "org": "Vancouver Writers Festival",
+    "url": "https://writersfest.bc.ca",
+    "desc": "Annual contest for Grades 5–12; short stories and essays up to 1,000–1,500 words.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "James Bartleman Indigenous Youth Creative Writing Awards",
+    "cat": "Essay",
+    "grades": [
+      "1–3",
+      "4–6",
+      "7–9"
+    ],
+    "eli": "Yes (Ontario Indigenous)",
+    "deadline": "May 31, 2027",
+    "deadlineSort": "2027-05-31",
+    "reward": "Cash",
+    "rewardD": "Large cash prize; two age categories: under 12 and 13–18",
+    "mode": "Online",
+    "org": "Office of the Lieutenant Governor of Ontario",
+    "url": "https://ltgov.on.ca",
+    "desc": "Recognizes outstanding Indigenous youth writers in Ontario aged up to 18; accepts poems, stories, essays, comics, or hybrid pieces.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Kids Write 4 Kids",
+    "cat": "Essay",
+    "grades": [
+      "4–6",
+      "7–9"
+    ],
+    "eli": "Yes",
+    "deadline": "March 31, 2027",
+    "deadlineSort": "2027-03-31",
+    "reward": "Recognition",
+    "rewardD": "Winning stories published in a book; author recognition",
+    "mode": "Online",
+    "org": "The Ripple Foundation",
+    "url": "https://kidswrite4kids.com",
+    "desc": "Annual writing contest for Grades 4–8; winning stories are published and proceeds support charitable causes.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "CSDF National Debate Championships",
+    "cat": "Debate",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "Varies (qualify locally)",
+    "deadlineSort": null,
+    "reward": "Recognition",
+    "rewardD": "National title, trophies, and selection for international competitions",
+    "mode": "In-Person",
+    "org": "Canadian Student Debating Federation",
+    "url": "https://csdf.ca",
+    "desc": "Canada's national debate championships (Senior and Junior); students qualify through provincial associations.",
+    "featured": true,
+    "rev": false
+  },
+  {
+    "name": "Speech and Debate Canada – National Persuasive Speaking",
+    "cat": "Debate",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "January 2027 (submission)",
+    "deadlineSort": "2027-01-15",
+    "reward": "Cash",
+    "rewardD": "$500 per winning category; half donated to a Canadian charity of winner's choice",
+    "mode": "Online",
+    "org": "Speech and Debate Canada Foundation",
+    "url": "https://www.speechanddebatecanada.com",
+    "desc": "Annual persuasive speaking competition for Canadian students in Grades 6–12; Junior and Senior categories in English and French.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "World Schools Debating Championships – Team Canada",
+    "cat": "Debate",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes (via CSDF selection)",
+    "deadline": "July 2027 (annual)",
+    "deadlineSort": "2027-07-01",
+    "reward": "Recognition",
+    "rewardD": "National team representation; international recognition",
+    "mode": "In-Person",
+    "org": "WSDC / Canadian Student Debating Federation",
+    "url": "https://www.wsdcdebating.org",
+    "desc": "Global championship for high school debaters; Canadian team selected through CSDF National BP Championships.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Ontario Student Debating Union (OSDU) Provincial Championship",
+    "cat": "Debate",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes (Ontario)",
+    "deadline": "Spring 2027",
+    "deadlineSort": "2027-04-01",
+    "reward": "Recognition",
+    "rewardD": "Provincial title; pathway to national and international competitions",
+    "mode": "In-Person",
+    "org": "Ontario Student Debating Union",
+    "url": "https://osdu.ca",
+    "desc": "Annual Ontario provincial debate championship; pathway to national CSDF events and Team Canada selection.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Canada-Wide Science Fair (CWSF)",
+    "cat": "Science",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "May 2027 (regional fairs precede)",
+    "deadlineSort": "2027-05-01",
+    "reward": "Scholarship",
+    "rewardD": "Over $1.3 million in scholarships and awards; top projects sent to ISEF and EUCYS",
+    "mode": "In-Person",
+    "org": "Youth Science Canada",
+    "url": "https://cwsf-espc.ca",
+    "desc": "Canada's largest youth STEM event for Grades 7–12; students qualify through regional fairs, then compete nationally for major scholarships.",
+    "featured": true,
+    "rev": false
+  },
+  {
+    "name": "Let's Talk Science Challenge",
+    "cat": "Science",
+    "grades": [
+      "4–6",
+      "7–9"
+    ],
+    "eli": "Yes",
+    "deadline": "Spring 2027 (March–May)",
+    "deadlineSort": "2027-03-01",
+    "reward": "Recognition",
+    "rewardD": "Free to enter; recognition and prizes for top teams",
+    "mode": "Both",
+    "org": "Let's Talk Science",
+    "url": "https://letstalkscience.ca/events/lets-talk-science-challenge",
+    "desc": "Free team-based STEM competition for Grades 6–8; includes a quiz and engineering challenge held across Canada and online.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Regeneron ISEF (via Youth Science Canada)",
+    "cat": "Science",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes (via CWSF)",
+    "deadline": "May 2027",
+    "deadlineSort": "2027-05-10",
+    "reward": "Cash",
+    "rewardD": "Up to tens of thousands USD in awards; prestigious international recognition",
+    "mode": "In-Person",
+    "org": "Society for Science / Youth Science Canada",
+    "url": "https://youthscience.ca/science-fairs/team-canada/",
+    "desc": "World's largest high school science fair; Canadians qualify through CWSF to represent Canada as Team Canada-ISEF.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "ExploraVision (Toshiba/NSTA)",
+    "cat": "Science",
+    "grades": [
+      "4–6",
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes (open to students in Canada and the US)",
+    "deadline": "Register by Jan 27, 2027; project due about Feb 3, 2027",
+    "deadlineSort": "2027-01-27",
+    "reward": "Cash",
+    "rewardD": "US EE Savings Bonds worth $10,000 for winning teams; other prizes for finalists",
+    "mode": "Online",
+    "org": "Toshiba / NSTA",
+    "url": "https://www.exploravision.org",
+    "desc": "Futuristic STEM challenge for teams of 2–4 in Grades 4–12 from US or Canadian schools; envision technology 20 years ahead.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "Canadian Computing Competition (CCC)",
+    "cat": "Science",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "February 17, 2027 (your school registers earlier)",
+    "deadlineSort": "2027-02-17",
+    "reward": "Certificate",
+    "rewardD": "Certificates; top performers qualify for Canadian Computing Olympiad",
+    "mode": "In-Person",
+    "org": "University of Waterloo – CEMC",
+    "url": "https://cemc.uwaterloo.ca/contests",
+    "desc": "Annual programming competition for secondary school students; accessible to beginners and challenges experienced coders.",
+    "featured": false,
+    "rev": true
+  },
+  {
+    "name": "Canadian Art Inspiration Student Challenge",
+    "cat": "Arts",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "April 30, 2027",
+    "deadlineSort": "2027-04-30",
+    "reward": "Cash",
+    "rewardD": "Cash prizes; showcase at Art Toronto, Canada's largest art fair",
+    "mode": "Online",
+    "org": "Art Canada Institute",
+    "url": "https://www.aci-iac.ca/education/art-challenge/",
+    "desc": "Annual visual art challenge for Grades 7–12; create original artwork inspired by a historical or contemporary Canadian artist.",
+    "featured": true,
+    "rev": false
+  },
+  {
+    "name": "Canada Youth Visual Art Contest (CYVAC)",
+    "cat": "Arts",
+    "grades": [
+      "1–3",
+      "4–6",
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "Varies (check website)",
+    "deadlineSort": null,
+    "reward": "Recognition",
+    "rewardD": "Certificates, awards, and international exposure",
+    "mode": "Both",
+    "org": "Youth Initiative Vancouver / Academy of Modern Art",
+    "url": "https://aoma.ca/cyvac/",
+    "desc": "International youth art competition based in Canada for children and youth of all ages; promotes cultural exchange and arts education.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Applied Arts Student Awards",
+    "cat": "Arts",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "May 22, 2027",
+    "deadlineSort": "2027-05-22",
+    "reward": "Recognition",
+    "rewardD": "Featured in Applied Arts Awards Annual; online Winners Gallery; official award badge and certificate",
+    "mode": "Online",
+    "org": "Applied Arts Media",
+    "url": "https://www.appliedartsmag.com/awards/",
+    "desc": "Annual awards celebrating student achievement in visual communications and creative arts across Canada.",
+    "featured": false,
+    "rev": false
+  },
+  {
+    "name": "Cambridge Re:Think Essay Competition",
+    "cat": "Essay",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "May 31, 2027",
+    "deadlineSort": "2027-05-31",
+    "reward": "Recognition",
+    "rewardD": "Award Ceremony and Dinner at University of Cambridge for top entrants; certificates for all",
+    "mode": "Online",
+    "org": "Cambridge Centre for International Research",
+    "url": "https://cambridge-research.org/essay-competition/",
+    "desc": "Global essay competition for students aged 11–18 who haven't started undergraduate studies; open to talented students worldwide including Canada.",
+    "featured": true,
+    "intl": true,
+    "rev": false
+  },
+  {
+    "name": "John Locke Institute Global Essay Prize",
+    "cat": "Essay",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "May 31, 2027",
+    "deadlineSort": "2027-05-31",
+    "reward": "Recognition",
+    "rewardD": "Cash prizes for top essays; scholarships to John Locke summer programs; global recognition",
+    "mode": "Online",
+    "org": "John Locke Institute",
+    "url": "https://www.johnlockeinstitute.com/essay-competition",
+    "desc": "Prestigious global essay competition open to students of any age under 19 from any country, across subjects like Politics, Economics, Philosophy, Science.",
+    "featured": true,
+    "intl": true,
+    "rev": false
+  },
+  {
+    "name": "Scholastic Art & Writing Awards",
+    "cat": "Essay",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes (Canada excluding Quebec; Grades 7–12, age 13+)",
+    "deadline": "Regional deadlines Dec 1, 2026 to early Jan 2027 (varies by region)",
+    "deadlineSort": "2026-12-01",
+    "reward": "Recognition",
+    "rewardD": "Gold Key, Silver Key and Honorable Mention awards; national medalists win scholarships",
+    "mode": "Online",
+    "org": "Scholastic Inc.",
+    "url": "https://www.artandwriting.org/",
+    "desc": "One of the longest-running U.S. writing and art awards, explicitly open to Grades 7–12 students in the U.S. and Canada, across 28 categories.",
+    "featured": false,
+    "intl": true,
+    "rev": true
+  },
+  {
+    "name": "Optimist International Essay Contest",
+    "cat": "Essay",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes (enter through a local Optimist Club; under 19 and not past high school)",
+    "deadline": "Varies by local club (typically early Feb 2027)",
+    "deadlineSort": "2027-02-01",
+    "reward": "Scholarship",
+    "rewardD": "Scholarships awarded at club, district, and international levels",
+    "mode": "Online",
+    "org": "Optimist International",
+    "url": "https://www.optimist.org/member/scholarships3.cfm",
+    "desc": "Open to students under 19 who haven't completed secondary school, including CEGEP students in Québec. Entered through local Optimist Clubs.",
+    "featured": false,
+    "intl": true,
+    "rev": true
+  },
+  {
+    "name": "International Youth Art Contest",
+    "cat": "Arts",
+    "grades": [
+      "1–3",
+      "4–6",
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "Varies (check website)",
+    "deadlineSort": null,
+    "reward": "Recognition",
+    "rewardD": "Exhibition at International Art Museum of America in San Francisco; jury review by professional artists",
+    "mode": "Online",
+    "org": "International Art Museum of America",
+    "url": "https://iamasf.org/2026-international-youth-art-contest/",
+    "desc": "Global youth art competition and exhibition open to young artists worldwide, across painting, drawing, and digital art categories.",
+    "featured": false,
+    "intl": true,
+    "rev": false
+  },
+  {
+    "name": "International Kids Art Contest",
+    "cat": "Arts",
+    "grades": [
+      "1–3",
+      "4–6",
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "2026 date (Oct 20) has passed; check the website for the next round",
+    "deadlineSort": null,
+    "reward": "Certificate",
+    "rewardD": "Certificates and diplomas for all; final winners' art exhibited at Degallery",
+    "mode": "Online",
+    "org": "DEGA (Degallery)",
+    "url": "https://www.artdega.org/programs/international-kids-art-contest/",
+    "desc": "International juried art contest open to all countries for artists aged 4–17, judged on original style and artistic value.",
+    "featured": false,
+    "intl": true,
+    "rev": false
+  },
+  {
+    "name": "International Research Olympiad (IRO)",
+    "cat": "Science",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes",
+    "deadline": "Varies (check website)",
+    "deadlineSort": null,
+    "reward": "Certificate",
+    "rewardD": "Certificates and recognition for top scorers; global STEM research recognition",
+    "mode": "Online",
+    "org": "International Research Olympiad",
+    "url": "https://www.internationalresearcholympiad.org/",
+    "desc": "Global STEM research competition for students aged 13–18 worldwide, testing research and analytical skills beyond the classroom.",
+    "featured": false,
+    "intl": true,
+    "rev": false
+  },
+  {
+    "name": "International Independent Schools' Public Speaking Competition (IISPSC)",
+    "cat": "Debate",
+    "grades": [
+      "10–12"
+    ],
+    "eli": "Yes (League member schools)",
+    "deadline": "Spring 2027 (check with school)",
+    "deadlineSort": "2027-04-01",
+    "reward": "Recognition",
+    "rewardD": "Winners advance to the World Individual Debate and Public Speaking Tournament",
+    "mode": "In-Person",
+    "org": "IISPSC",
+    "url": "https://www.iispsc.com/",
+    "desc": "Annual public speaking competition open to League member independent schools across Canada, the U.S., UK, and other countries.",
+    "featured": false,
+    "intl": true,
+    "rev": false
+  },
+  {
+    "name": "Learning to Be Heard: Global Public Speaking Challenge",
+    "cat": "Debate",
+    "grades": [
+      "7–9",
+      "10–12"
+    ],
+    "eli": "Yes (open worldwide, ages 14–18)",
+    "deadline": "January 10, 2027 (11:59 pm UK time, 6:59 pm Eastern)",
+    "deadlineSort": "2027-01-10",
+    "reward": "Scholarship",
+    "rewardD": "Full or partial scholarship to TED Summer School 2027, a paid summer programme (in person or virtual)",
+    "mode": "Online",
+    "org": "Immerse Education (TED Summer School)",
+    "url": "https://www.ted.immerse.education/public-speaking-challenge",
+    "desc": "Free public speaking challenge for ages 14 to 18. Students submit a one-minute video, judged on the idea rather than production quality. Results are announced January 25, 2027.",
+    "featured": false,
+    "rev": true
+  }
 ];
 
+function slugify(n){return n.toLowerCase().replace(/&/g,"and").replace(/['’]/g,"").replace(/:/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
 let activeCat = "All";
 const TODAY = new Date(); // live "today" — site always filters relative to the visitor's current date
 
@@ -452,7 +1169,7 @@ function renderCards(list) {
       <div class="card-header">
         <div class="card-title-wrap">
           <div class="card-eyebrow ${c.cat}">${c.cat}${c.intl ? ' · 🌍 International' : ''}${c.featured ? ' · ⭐ Featured' : ''}</div>
-          <div class="card-title">${c.name}</div>
+          <div class="card-title"><a href="/contest/${slugify(c.name)}/">${c.name}</a></div>
           <div class="card-org">${c.org}</div>
         </div>
       </div>

@@ -1,0 +1,10 @@
+*{box-sizing:border-box;margin:0;padding:0}body{font:16px/1.65 Inter,sans-serif;background:#F7F8FA;color:#111827}
+nav{background:#0D1B40;padding:0 1.5rem}.nav-inner{max-width:880px;margin:0 auto;height:58px;display:flex;align-items:center}.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}.nav-logo-icon{width:32px;height:32px;background:#D6001C;border-radius:8px;display:flex;align-items:center;justify-content:center}.nav-logo-text{font-family:Fraunces,serif;font-size:18px}
+main{max-width:880px;margin:0 auto;padding:1.5rem 1.25rem 3rem}.crumbs{font-size:13px;color:#6B7280;margin-bottom:1rem}.crumbs a,main a{color:#0D1B40}
+h1{font:600 clamp(1.7rem,4vw,2.3rem)/1.2 Fraunces,serif;color:#0D1B40;margin-bottom:.75rem}h2{font:600 1.35rem Fraunces,serif;margin:2rem 0 .75rem;color:#0D1B40}h3{font-size:1.05rem;margin:1rem 0 .25rem}
+.intro{font-size:1.05rem;max-width:68ch;margin-bottom:.75rem}.count,.o,.note{color:#6B7280;font-size:14px}.note{margin:1rem 0}
+.list{display:grid;gap:1rem;margin-top:1rem}.c{background:#fff;border:1px solid #E4E7EE;border-radius:10px;padding:1rem 1.15rem}.c h3{margin:0 0 .15rem}.c a{text-decoration:none}.c a:hover{text-decoration:underline}.c p{margin:.35rem 0}.m{font-size:13.5px;color:#374151}
+.facts{display:grid;grid-template-columns:max-content 1fr;gap:.5rem 1.25rem;background:#fff;border:1px solid #E4E7EE;border-radius:10px;padding:1rem 1.15rem;margin:1rem 0}dt{font-weight:600;color:#6B7280;font-size:14px}em{color:#B45309;font-style:normal}
+.btn{display:inline-block;background:#D6001C;color:#fff!important;padding:.6rem 1.1rem;border-radius:7px;text-decoration:none;font-weight:600}
+footer{background:#0D1B40;color:rgba(255,255,255,.75);padding:2rem 1.25rem;font-size:14px}.fi{max-width:880px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem}.fi div{display:flex;flex-direction:column;gap:.35rem}.fi h4{color:#fff;font-size:13px}.fi a{color:rgba(255,255,255,.75);text-decoration:none}.fi a:hover{color:#fff}.fi p{width:100%;font-size:12.5px}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
